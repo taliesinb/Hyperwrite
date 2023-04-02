@@ -1,0 +1,40 @@
+{
+	"folders":
+	[
+		{
+			"path": ".",
+			"folder_exclude_patterns": ["zig-cache"]
+		}
+	],
+	"build_systems": [
+		{
+            "name": "List",
+            "cmd": ["ls"]
+        },
+		{
+			"name": "Zig",
+			"working_dir": "${project_path}",
+			"cmd": ["zig", "test", "$file", "-freference-trace"],
+			"selector": "source.zig",
+			"file_regex": "^(.*\\.zig):([\\d]+):(\\d+): ([^\\n]+)",
+			//"file_regex": "\\[1m(...*?\\.zig):([\\d]+):(\\d+): \\[31;1merror: \\[0m\\[1m([^\\n]+)",
+		    //"target": "ansi_color_build",
+		    "quiet": true,
+		    //"syntax": "Packages/ANSIescape/ANSI.sublime-syntax",
+			// "variants": [
+		    //     {
+		    //         "name": "Test File",
+		    //         "shell_cmd": ["echo", "zig", "test", "$file_name"]
+		    //     },
+		    //     {
+		    //         "name": "Run File",
+		    //         "shell_cmd": ["zig", "build-exe", "$file_name"]
+		    //     },
+		    //     {
+		    //         "name": "Dummy",
+		    //         "shell_cmd": ["ls"]
+		    //     },
+		    // ]
+		}
+	]
+}
